@@ -483,6 +483,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const path = require('path');
+require('dotenv').config();
 
 // Models and Middleware/Utilities
 const Comment = require('./models/Comment');
@@ -496,7 +497,7 @@ const refreshTokens = new Set();
 
 // Connect to MongoDB function
 const connectDB = () => {
-    mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://bokamaravind_07:h6O9pI0zPx536SUD@cluster0.mfyvep3.mongodb.net/nzproject?retryWrites=true&w=majority&appName=Cluster0', {
+    mongoose.connect(process.env.MONGO_URI || 'localhost', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }).then(() => console.log('MongoDB connected'))
